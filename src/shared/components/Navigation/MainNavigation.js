@@ -6,7 +6,7 @@ import './MainNavigation.css'
 
 const MainNavigation = props => {
     return (
-        <MainHeader> //special children prop and hamburger
+        <MainHeader> 
             <button className ="main-navigation__menu-btn">
                 <span />
                 <span />
@@ -20,4 +20,6 @@ const MainNavigation = props => {
             </nav>
         </MainHeader>
     )
-}
+};
+
+export default MainNavigation;
