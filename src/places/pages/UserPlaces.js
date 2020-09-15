@@ -1,37 +1,42 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
+
 
 import PlaceList from '../components/PlaceList';
 
 const DUMMY_PLACES = [
-    {
-    id:'p1',
+  {
+    id: 'p1',
     title: 'Empire State Building',
     description: 'One of the most famous sky scrapers in the world!',
-    imageUrl: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.great-towers.com%2Ftower%2Fempire-state-building&psig=AOvVaw3msACNA_W9oPZz2JZAzDyE&ust=1600372440637000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLDHn4-67usCFQAAAAAdAAAAABAD',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg',
     address: '20 W 34th St, New York, NY 10001',
-    loction:{
-        lat: 40.7484405,
-        lng: -73.9856644
-        }
-        creator: 'u1'
-   },
-   {
-    id:'p2',
+    location: {
+      lat: 40.7484405,
+      lng: -73.9878584
+    },
+    creator: 'u1'
+  },
+  {
+    id: 'p2',
     title: 'Empire State Building',
-    description: 'One of the most famous sky scrapers in the world!',
-    imageUrl: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.great-towers.com%2Ftower%2Fempire-state-building&psig=AOvVaw3msACNA_W9oPZz2JZAzDyE&ust=1600372440637000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLDHn4-67usCFQAAAAAdAAAAABAD',
+    description: 'Best View in NY!',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg',
     address: '20 W 34th St, New York, NY 10001',
-    loction:{
-        lat: 40.7484405,
-        lng: -73.9856644
-        }
-
-   }
-
+    location: {
+      lat: 40.7484405,
+      lng: -73.9878584
+    },
+    creator: 'u2'
+  }
 ];
 
 const UserPlaces = () => {
-    return <PlaceList items={DUMMY_PLACES} />;
+    const userId= useParams().userId;
+    const loadedPlaces = DUMMY_PLACES.filter(place => place.creator === userId);
+    return <PlaceList items={loadedPlaces} />;
+
+  return <PlaceList items={DUMMY_PLACES} />;
 };
 
 export default UserPlaces;

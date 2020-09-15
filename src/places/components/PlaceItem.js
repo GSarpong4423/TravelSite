@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Card from '../..shared/components/UIElements/Card';
+import Card from '../../shared/components/UIElements/Card';
 import './PlaceItem.css';
 
 const PlaceItem = props => {
